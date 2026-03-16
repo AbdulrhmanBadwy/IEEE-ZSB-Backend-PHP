@@ -6,23 +6,18 @@
     <title>Demo</title>
 </head>
 <body>
+    <h1>Recommended Books </h1>
     <?php
-        $names = "Dark Matter";
-        $read = true ; 
-        
-        if($read){
-            $message = "You have read $names";
-        }else {
-            $message = "You have Not  read $names";
-        }
-
+        $books = [
+            "Do Androids Dream of Electric SheeP",
+            "The Langoliers",
+            "Hail Mary",
+        ];
     ?>
-    <h1>
-
-            <!-- <?php
-                echo $message;
-            ?> -->
-            <?= $message?>
-    </h1>
+    <ul>
+        <?php foreach ($books as $book) : ?>
+            <li><?= $book ?> </li>
+        <?php endforeach; ?>
+    </ul>
 </body>
 </html>
