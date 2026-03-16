@@ -33,25 +33,27 @@
         ]
 
     ];
-    function filterByAuthor($author) 
+    function filter($items,$function) 
     {
-        global $books;
-        $filteredBooks = [];
+        $filteredItems = [];
 
-        foreach ($books as $book) { 
-            if($book['author' ] == $author){
-                array_push($filteredBooks, $book);
+        foreach ($items as $item) { 
+            if($function($item)){
+                array_push($filteredItems, $item);
             }
         }
-        return $filteredBooks;
+        return $filteredItems;
 
     }
 
+    $filteredBooks = array_filter($books , function($book){
+        return $book['author'] == 'Andy Weir'; 
+    } );
 
     ?>
 
     <ul>
-        <?php foreach (filterByAuthor('Philip K. Dick') as $book): ?>
+        <?php foreach ($filteredBooks as $book): ?>
 
             <li>
                 <a href="<?= $book['purchaseUrl'] ?>">
