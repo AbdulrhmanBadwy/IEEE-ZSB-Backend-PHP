@@ -1,26 +1,22 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demo</title>
+    <title>Technical Check-in #1 </title>
 </head>
-
 <body>
-    <h1>Recommended Books </h1>
-    
-    <ul>
-        <?php foreach ($filteredBooks as $book): ?>
+    <h1>
+        <?=$business['name'] ; ?>
+    </h1>
 
+    <ul>
+        <?php foreach($business['categories'] as $category): ?>
             <li>
-                <a href="<?= $book['purchaseUrl'] ?>">
-                    <?= $book['name']; ?> (<?= $book['releaseYear'] ?> ) - <?= $book['author']?>
-                </a>
+                <?=$category ?> 
             </li>
-        <?php endforeach ?>
+        <?php endforeach; ?>
     </ul>
-</body> 
-</html>     
+</body>
+</html>

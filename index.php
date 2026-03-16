@@ -1,43 +1,27 @@
 <?php
-    $books = [
-        [
-            "name" => "Do Androids Dream of Electric SheeP",
-            "author" => "Philip K. Dick",
-            'releaseYear' => 1968,
+$name = "Abdulrhman Badwy";
+$cost = 15;
 
-            "purchaseUrl" => "http://emxmaple.com",
-        ],
-        [
-            "name" => 'Project Hali Mary',
-            "author" => 'Andy Weir',
-            'releaseYear' => 2011,
+$business = [
+    'name' => 'Laracasts',
+    'cost' => 15,
+    'categories' => ['testing', 'php', 'javascript']
+];
 
-            "purchaseUrl" => 'http://example.com',
-        ],
-        [
-            'name' => 'The Martian',
-            'author' => 'Andy Weir',
-            'releaseYear' => 2011,
-            'purchaseUrl' => 'http://example.com',
-        ]
+$business['name'];
 
-    ];
-    function filter($items,$function) 
-    {
-        $filteredItems = [];
+// foreach ($business['categories'] as $category){
+//     echo $category ."<br>";
+// }
 
-        foreach ($items as $item) { 
-            if($function($item)){
-                array_push($filteredItems, $item);
-            }
-        }
-        return $filteredItems;
+function register($user){
+    // Create the user recored in the db 
+    // log them in . 
+    // send a welcom email. 
+    // readirect to their new dashboard . 
 
-    }
+}
 
-    $filteredBooks = array_filter($books , function($book){
-        return $book['author'] == 'Andy Weir'; 
-    } );
+require "inedex.view.php"; 
 
 
-    require "inedex.view.php";
