@@ -8,15 +8,21 @@
 <body>
     <?php
         $names = "Dark Matter";
+        $read = true ; 
+        
+        if($read){
+            $message = "You have read $names";
+        }else {
+            $message = "You have Not  read $names";
+        }
+
     ?>
     <h1>
 
-        <!-- <?php
-            $greeting ="Hello";
-            echo "$greeting Everybody!";
-        ?> -->
-
-        You have read <?php echo $names;?>
+            <!-- <?php
+                echo $message;
+            ?> -->
+            <?= $message?>
     </h1>
 </body>
 </html>
