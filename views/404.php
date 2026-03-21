@@ -4,10 +4,10 @@
 
 
 <main>
-    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 text-white font-bold">
         <h1 class="text-2xl font-bold">Sorry. Page Not Found.</h1>
         <p class="mt-4">
-            <a href="/" class="text-blue uderline">Go back home.</a>
+            <a href="/" class="text-blue-500 hover:uderline">Go back home.</a>
         </p>
     </div>
 </main>
