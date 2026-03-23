@@ -7,18 +7,35 @@ $config = require base_path('config.php');
 
 $db = new Database($config['database']);
 
-$heading = "Note";
+$currentUserId = 1;
 
-$currentUserId = 1; 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // form was submitted. delete the current note.
+    $note = $db->query('SELECT * from notes where   id = :id  ', [
+        'id' => $_GET["id"]
 
-$note = $db->query('SELECT * from notes where   id = :id  ' , [ 
-    'id'=>$_GET["id"]
-    
+    ])->findOrFail();
+
+    authorize($note['user_id'] == $currentUserId);
+    $db->query("delete from notes where id = :id", [
+
+        'id' => $_GET['id']
+    ]);
+
+    header('location: /notes');
+    exit();
+} else {
+
+
+    $note = $db->query('SELECT * from notes where   id = :id  ', [
+        'id' => $_GET["id"]
+
     ])->findOrFail();
 
     authorize($note['user_id'] == $currentUserId);
 
-require view("notes/show.view.php" , [
-    "heading"=> 'Note',
-    'note'=> $note,
-]);
+    require view("notes/show.view.php", [
+        "heading" => 'Note',
+        'note' => $note,
+    ]);
+}
